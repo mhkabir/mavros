@@ -109,8 +109,8 @@ private:
 		has_local_position_ned = true;
 
 		//--------------- Transform FCU position and Velocity Data ---------------//
-		auto enu_position = ftf::transform_frame_ned_enu(Eigen::Vector3d(pos_ned.x, pos_ned.y, pos_ned.z));
-		auto enu_velocity = ftf::transform_frame_ned_enu(Eigen::Vector3d(pos_ned.vx, pos_ned.vy, pos_ned.vz));
+		auto enu_position = ftf::transform_frame_ned_enu(Eigen::Vector3d(pos_ned.x, pos_ned.y, 0.0f));
+		auto enu_velocity = ftf::transform_frame_ned_enu(Eigen::Vector3d(pos_ned.vx, pos_ned.vy, 0.0f));
 
 		//--------------- Get Odom Information ---------------//
 		// Note this orientation describes baselink->ENU transform
@@ -166,8 +166,8 @@ private:
 	{
 		has_local_position_ned_cov = true;
 
-		auto enu_position = ftf::transform_frame_ned_enu(Eigen::Vector3d(pos_ned.x, pos_ned.y, pos_ned.z));
-		auto enu_velocity = ftf::transform_frame_ned_enu(Eigen::Vector3d(pos_ned.vx, pos_ned.vy, pos_ned.vz));
+		auto enu_position = ftf::transform_frame_ned_enu(Eigen::Vector3d(pos_ned.x, pos_ned.y, 0.0f));
+		auto enu_velocity = ftf::transform_frame_ned_enu(Eigen::Vector3d(pos_ned.vx, pos_ned.vy, 0.0f));
 
 		auto enu_orientation_msg = m_uas->get_attitude_orientation_enu();
 		auto baselink_angular_msg = m_uas->get_attitude_angular_velocity_enu();
